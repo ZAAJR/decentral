@@ -15,5 +15,5 @@ sudo sysctl -p /etc/sysctl.d/99-tailscale.conf
 
 routes=$(tailscale debug via $translator_id 192.168.1.0/24)
 echo $routes
-echo tailscale up --advertise-routes=$routes
-tailscale up --advertise-routes=$routes
+echo sudo tailscale up --advertise-routes=$routes
+sudo tailscale up --advertise-routes=$routes
