@@ -17,3 +17,5 @@ routes=$(tailscale debug via $translator_id 192.168.1.0/24)
 echo $routes
 echo sudo tailscale up --advertise-routes=$routes
 sudo tailscale up --advertise-routes=$routes
+echo sudo tailscale set --auto-update
+sudo tailscale set --auto-update
