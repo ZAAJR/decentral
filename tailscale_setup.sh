@@ -44,6 +44,9 @@ if ! is_valid_ipv4 "$subnet"; then
   exit
 fi
 
+parts=(${subnet//./ })
+subnet="${parts[0]}.${parts[1]}.${parts[2]}.0"
+
 echo Subnet: $subnet
 
 sudo apt-get -y install apt-transport-https
