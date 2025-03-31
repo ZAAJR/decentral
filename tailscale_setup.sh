@@ -1,9 +1,17 @@
 #!/usr/bin/env bash
-
-echo Please enter the Tailscale 4via6 subnet translator ID
-read translator_id
-echo Enter the subnet for the router (default=192.168.1.0)
-read subnet
+translator_id=$1
+subnet=$2
+if [[ -z "$translator_id" ]]; then
+  echo Please enter the Tailscale 4via6 subnet translator ID
+  read translator_id
+fi
+if [[ -z "$translator_id" ]]; then
+  exit
+fi
+if [[ -z "$subnet" ]]; then
+  echo Enter the subnet for the router (default=192.168.1.0)
+  read subnet
+fi
 if [[ -z "$subnet" ]]; then
   subnet="192.168.1.0"
 fi
