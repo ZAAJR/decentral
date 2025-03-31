@@ -9,7 +9,7 @@ if [[ -z "$translator_id" ]]; then
   exit
 fi
 if [[ -z "$subnet" ]]; then
-  echo Enter the subnet for the router (default=192.168.1.0)
+  echo Enter the subnet for the router default is 192.168.1.0
   read subnet
 fi
 if [[ -z "$subnet" ]]; then
