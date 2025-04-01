@@ -25,12 +25,10 @@ if [ -n "$current_ip" ]; then
   cat "$temp_hosts" >> /etc/hosts
   rm "$temp_hosts"
   echo "Updated /etc/hosts with the new hostname."
+  hostname $new_hostname
 else
   echo "Warning: Could not automatically determine the system's IP address. You might need to update /etc/hosts manually."
 fi
-
-echo "You might need to reboot your system or run 'sudo hostname $new_hostname' for the changes to take full effect immediately."
-
 
 
 curl -fsSL https://tailscale.com/install.sh | sh
