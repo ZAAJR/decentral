@@ -4,4 +4,4 @@ bash -c "$(wget -qLO - https://raw.githubusercontent.com/ZAAJR/decentral/main/ta
 
 To rename the host and install Tailscale on new Orange Pi run the following command from the Pi
 
-sudo bash -c "$(wget -qLO - https://raw.githubusercontent.com/ZAAJR/decentral/main/hostname_and_tailscale.sh)"
+sudo bash -c "$(wget -qLO - https://raw.githubusercontent.com/ZAAJR/decentral/main/tailscale_host_and_routes.sh)"
