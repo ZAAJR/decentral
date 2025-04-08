@@ -38,13 +38,14 @@ fi
 
 
 # Pad the number with leading zeros to make it 5 digits
-translator_id=$(printf "%05d" "$number")
+translator_id=$number
+padded_translator_id=$(printf "%05d" "$number")
 
 # Define the base hostname (you can customize this)
 base_hostname="tailscale"
 
 # Construct the new hostname
-new_hostname="${base_hostname}-${translator_id}"
+new_hostname="${base_hostname}-${padded_translator_id}"
 
 # Check if the user has root privileges
 if [[ $EUID -ne 0 ]]; then
@@ -111,8 +112,8 @@ sudo ethtool -K $NETDEV rx-udp-gro-forwarding on rx-gro-list off
 printf '#!/bin/sh\n\nethtool -K %s rx-udp-gro-forwarding on rx-gro-list off \n' "$(ip -o route get 8.8.8.8 | cut -f 5 -d " ")" | sudo tee /etc/networkd-dispatcher/routable.d/50-tailscale
 sudo chmod 755 /etc/networkd-dispatcher/routable.d/50-tailscale
 
-sudo /etc/networkd-dispatcher/routable.d/50-tailscale
-test $? -eq 0 || echo 'An error occurred.' && exit 1
+#sudo /etc/networkd-dispatcher/routable.d/50-tailscale
+#test $? -eq 0 || echo 'An error occurred.' && exit 1
 
 routes=$(tailscale debug via $translator_id $subnet/24)
 echo $routes
