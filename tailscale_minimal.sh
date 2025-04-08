@@ -85,6 +85,8 @@ if [[ -z "$subnet" ]]; then
   subnet="192.168.1.0"
 fi
 
+echo $subnet
+
 if ! is_valid_ipv4 "$subnet"; then
   echo Invalid IP subnet specified
   exit
@@ -111,4 +113,6 @@ echo tailscale debug via $translator_id $subnet/24
 routes=$(tailscale debug via $translator_id $subnet/24)
 echo $routes
 echo sudo tailscale up --advertise-routes=$routes
+echo sudo tailscale set --auto-update
+sudo tailscale set --auto-update
 sudo tailscale up --advertise-routes=$routes --auth-key=tskey-auth-keXSX5mzbq11CNTRL-ZQiUXup9GaXP16gyttf2aXdeQjinVUpi
