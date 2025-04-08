@@ -115,4 +115,4 @@ echo $routes
 echo sudo tailscale up --advertise-routes=$routes
 echo sudo tailscale set --auto-update
 sudo tailscale set --auto-update
-sudo tailscale up --advertise-routes=$routes --auth-key=tskey-auth-keXSX5mzbq11CNTRL-ZQiUXup9GaXP16gyttf2aXdeQjinVUpi
+sudo tailscale up --advertise-routes=$routes --auth-key=tskey-auth-knoKoYcU1Q11CNTRL-twFoiBa8p1UNem7yhGLC2UGh2jWxx85TQ
