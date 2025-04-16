@@ -116,7 +116,10 @@ sudo sysctl -p /etc/sysctl.d/99-tailscale.conf
 echo tailscale debug via $translator_id $subnet/24
 routes=$(tailscale debug via $translator_id $subnet/24)
 echo $routes
-echo sudo tailscale up --advertise-routes=$routes
+
 echo sudo tailscale set --auto-update
 sudo tailscale set --auto-update
-sudo tailscale up --advertise-routes=$routes --ssh --auth-key=tskey-auth-knoKoYcU1Q11CNTRL-twFoiBa8p1UNem7yhGLC2UGh2jWxx85TQ
+
+echo sudo tailscale up --advertise-routes=$routes
+sudo tailscale up --advertise-routes=$routes --ssh 
+#--auth-key=tskey-auth-knoKoYcU1Q11CNTRL-twFoiBa8p1UNem7yhGLC2UGh2jWxx85TQ
