@@ -2,6 +2,7 @@
 
 number="$1"
 subnet="$2"
+auth_key="$3"
 
 is_valid_ipv4() {
   local ip_address="$1"
@@ -35,6 +36,12 @@ if ! [[ $number =~ ^[0-9]+$ ]]; then
   exit 1
 fi
 
+# Check if the auth_key passed in as a parameter
+if [ -z $auth_key ]; then
+  auth_key_string="--auth-key=${auth_key}"
+else
+  auth_key_string=""
+fi
 
 
 # Pad the number with leading zeros to make it 5 digits
@@ -118,8 +125,7 @@ routes=$(tailscale debug via $translator_id $subnet/24)
 echo $routes
 
 echo sudo tailscale up --advertise-routes=$routes
-sudo tailscale up --advertise-routes=$routes --ssh 
-#--auth-key=tskey-auth-kLB8yMhNgC21CNTRL-R9cKdG5ZPqTRfKvYdSo1qTvQwiXhpuqu
+sudo tailscale up --advertise-routes=$routes --ssh $auth_key_string 
 
 echo sudo tailscale set --auto-update
 sudo tailscale set --auto-update
