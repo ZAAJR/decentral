@@ -118,7 +118,8 @@ routes=$(tailscale debug via $translator_id $subnet/24)
 echo $routes
 
 echo sudo tailscale up --advertise-routes=$routes
-sudo tailscale up --advertise-routes=$routes --ssh --auth-key=tskey-auth-kLB8yMhNgC21CNTRL-R9cKdG5ZPqTRfKvYdSo1qTvQwiXhpuqu
+sudo tailscale up --advertise-routes=$routes --ssh 
+#--auth-key=tskey-auth-kLB8yMhNgC21CNTRL-R9cKdG5ZPqTRfKvYdSo1qTvQwiXhpuqu
 
 echo sudo tailscale set --auto-update
 sudo tailscale set --auto-update
