@@ -117,7 +117,9 @@ sudo chmod 755 /etc/networkd-dispatcher/routable.d/50-tailscale
 
 routes=$(tailscale debug via $translator_id $subnet/24)
 echo $routes
-echo sudo tailscale set --auto-update
-sudo tailscale set --auto-update
+
 echo sudo tailscale up --advertise-routes=$routes --ssh
 sudo tailscale up --advertise-routes=$routes --ssh
+
+echo sudo tailscale set --auto-update
+sudo tailscale set --auto-update
