@@ -1,8 +1,8 @@
 #!/bin/bash
 
-number="$1"
-subnet="$2"
-auth_key="$3"
+subnet="$1"
+auth_key="$2"
+number="$3"
 
 echo Authkey = $auth_key
 is_valid_ipv4() {
@@ -47,7 +47,7 @@ echo Auth String = $auth_key_string
 
 # Pad the number with leading zeros to make it 5 digits
 translator_id=$number
-padded_translator_id=$(printf "%05d" "$number")
+padded_translator_id=$(printf "%03d" "$number")
 
 # Define the base hostname (you can customize this)
 base_hostname="tailscale"
@@ -130,3 +130,5 @@ sudo tailscale up --advertise-routes=$routes --ssh $auth_key_string
 
 echo sudo tailscale set --auto-update
 sudo tailscale set --auto-update
+
+ping 192-168-1-1-via-$translator_id
