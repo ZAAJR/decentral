@@ -131,4 +131,4 @@ sudo tailscale up --advertise-routes=$routes --ssh $auth_key_string
 echo sudo tailscale set --auto-update
 sudo tailscale set --auto-update
 
-ping 192-168-1-1-via-$translator_id
+exit
