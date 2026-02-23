@@ -128,7 +128,10 @@ echo $routes
 echo sudo tailscale up --advertise-routes=$routes --ssh $auth_key_string
 sudo tailscale up --advertise-routes=$routes --ssh $auth_key_string 
 
-echo sudo tailscale set --auto-update
-sudo tailscale set --auto-update
+echo sudo tailscale set --auto-update=false
+sudo tailscale set --auto-update=false
+
+echo sudo tailscale update --yes
+sudo tailscale update --yes
 
 exit
