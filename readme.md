@@ -9,5 +9,4 @@ sudo bash -c "$(wget -qLO - https://raw.githubusercontent.com/ZAAJR/decentral/ma
 
 To setup Tailscale on a preconfigured Orange Pi
 
-sudo bash -c "$(wget -qLO - https://raw.githubusercontent.com/ZAAJR/decentral/main/tailscale_minimal.sh)"
 sudo bash -c "$(wget -qLO - https://raw.githubusercontent.com/ZAAJR/decentral/main/tailscale_minimal.sh)" _ <subnet> <auth-key> <translator_id>
